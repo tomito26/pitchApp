@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>{{ user.username|capitalize }}</h1>
+        </div>
+        <div class="card-title">
+            {% if user.profile_pic_path %}
+            <img src="{{ url_for('static',filename=user.profile_pic_path)}}" class="rounde-circle card-image-top img-thumbnail"  alt="">
+            {%else %}
+            <p>No profile picture</p>
+            {% endif %}
+
+            {% if user == current_user %}
+
+            <form action="{{url_for('main.update_pic',uname=user.username)}}" method="POST" enctype="multipart/form-data">
+            <input type='file' name='photo' class='form-control' required>
+            <input type="submit" >
+            </form>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <h3>{{ user.username|capitalize }}</h3>
+            <hr>
+            {% if user.bio %}
+            <p>{{ user.bio}}</p>
+            {% else %}
+            <p>{{ user.username|capitalize }} has no user bio</p>
+            {% endif %}
+            <hr>
+            {% if user.user == current_user %}
+            <a class="btn-dark" href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h1>Your Pitches</h1>
+        <div class="underline"></div>
+    </div>
+</div>
