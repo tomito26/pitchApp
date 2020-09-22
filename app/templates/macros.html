@@ -1,0 +1,42 @@
+{% macro displayPitches(pitches_list) %}
+
+{% for pitch in pitches_list[::-1] %}
+<div class="panel">
+    <h3>{{pitch.pitch}}</h3>
+    <p>Posted on :{{pitch.date}}</p>
+    <br>
+    <a href="{{url_for('main.new_comment',id=pitch.id)}}">Add a Comment</a>
+    <a href="{{url_for('main.upvote',pitch_id = pitch.id)}}" class="btn btn primary btn-sm">Upvote <span>{{pitch.upvotes.count()}}</span></a>
+    <a href="{{url_for('main.downvote',pitch_id = pitch.id)}}" class="btn btn primary btn-sm">Downvote<span>{{pitch.downvotes.count()}}</span></a>
+    <a href="{{ url_for('main.view_comments',id = pitch.id) }}">View Comments</a>  
+</div>
+{% endfor %}
+{% end macro %}
+{% macro displayComments(list_of_comments) %}
+{% for  Comment in list_of_comments[::1] %}
+<div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4">
+        <h4>Author</h4>
+        <p>{{ comment.user.username}}</p>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
+        <h2><a href="{{ url_for('main.single_comment',id = comment.id)  }}">{{comment.pitch_title}}</a></h2>
+    </div>
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro displayPitchesInCategory(pitches,id) %}
+    {% for pitch in pitches %}
+        {% if pitch.category_id=id %}
+           <div class="panel">
+               <p>{{pitch.pitch}}</p>
+               <p>Posted on:{{}pitch.date}</p>
+               <a href="{{ url_for('main.new_comment', id = pitch.id)}}">Add a comment</a>
+               <a href="{{ url_for('main.upvote', pitch_id = pitch_id) }}">Upvote <span>{{pitch.upvote.count()}}</span></a>
+               <a href="{{ url_for('main.downvote',pitch_id = pitch.d) }}" class="btn btn-info btn-sm">Downvote<span>{{pitch.downvote.count()}}</span></a>
+               <a href="{{ url_for('main.view_comments',id=pitch.id)}}">view comments</a>
+           </div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

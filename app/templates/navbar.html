@@ -19,12 +19,35 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Dropdown
                 </a>
-                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                    <a class="dropdown-item" href="#">Interview Pitch</a>
-                    <a class="dropdown-item" href="#">Career Pitch</a>
-                    <a class="dropdown-item" href="#">Product PItch</a>
+                <div class="dropdown-menu dropdown-default bg-info" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" href="{{url_for('main.interview')}}">Interview Pitches</a>
+                    <a class="dropdown-item" href="{{url_for('main.pick_up_lines')}}">Career Pitches</a>
+                    <a class="dropdown-item" href="{{ url_for('main.promotion') }}">Product PItches</a>
+                    <a class="dropdown-item" href="{{ url_for('main.product') }}">Product Pitches</a>
                 </div>
             </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if current_user.is_authenticated %}
+            <!-- <li style="color:white;padding:15px;">{{current_user.username}}</li> -->
+        
+            <li class="dropdown"><a href="#" class="dropdown-toggle text-light" data-toggle="dropdown"><i
+                        class="fa fa-user"></i><strong class="ml-2">Welcome, {{current_user.username}}</strong> <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu bg-dark text-center">
+        
+                    <li><a href="{{url_for('main.profile',uname=current_user.username)}} " class="text-light "><i
+                                class="icon-envelope"></i><strong>Your profile</strong></a></li>
+                    <li class="divider"></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="{{url_for('auth.logout')}}" class="text-light "><i
+                                class="fa fa-sign-out mr-2"></i><strong>Logout</strong></a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li><a href="{{url_for('auth.login')}}" class="text-light"><i class="fa fa-sign-in mr-2"></i><strong>Sign
+                        In</strong></a></li>
+            {%endif%}
         </ul>
     </div>
 </nav>
