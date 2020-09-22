@@ -27,12 +27,12 @@
 {% endfor %}
 {% endmacro %}
 
-{% macro displayPitchesInCategory(pitches,id) %}
-    {% for pitch in pitches %}
-        {% if pitch.category_id=id %}
+{% macro displayPitchesInCategories(pitches,id) %}
+    {% for pitch in pitches[::-1] %}
+        {% if pitch.category_id==id %}
            <div class="panel">
                <p>{{pitch.pitch}}</p>
-               <p>Posted on:{{}pitch.date}</p>
+               <p>Posted on:{{pitch.date}}</p>
                <a href="{{ url_for('main.new_comment', id = pitch.id)}}">Add a comment</a>
                <a href="{{ url_for('main.upvote', pitch_id = pitch_id) }}">Upvote <span>{{pitch.upvote.count()}}</span></a>
                <a href="{{ url_for('main.downvote',pitch_id = pitch.d) }}" class="btn btn-info btn-sm">Downvote<span>{{pitch.downvote.count()}}</span></a>
