@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+ <div class="container">
+     <div class="row">
+        <div class="col-md-6 mx-auto">
+            <a href="{{url_for('main.pitch')}}">
+                <span class="bg-danger text-light">Add a new Pitch</span>
+            </a>
+        </div>
+        <div class="col-md-6"></div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-8 mx-auto bg-light">
+             {{macro.displayPitches(pitches)}}
+         </div>
+     </div>
+ </div>
+
+{% endblock %}

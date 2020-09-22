@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'macros.html'as macro %}
+
+
+{% block content %}
+<div class="container">
+    <h3 class="text-center text-light">Product Pitches</h3>
+    <a class="btn-primary" href="{{url_for('main.new_pitch')}}">
+        <br>
+        Add a new Pitch
+    </a>
+    
+    <hr>
+    
+    {{macro.displayPitchesInCategories(pitches,4)}}
+    <hr>
+</div>
+{%endblock %}

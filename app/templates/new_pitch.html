@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-4">
+            <a href="{{url_for('main.all')}}">
+                <button type="button" class="btn btn-primary btn-sm" style="margin-bottom:10px;">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Back
+                </button>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {{wtf.quick_form(new_pitch_form)}}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

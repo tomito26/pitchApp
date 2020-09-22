@@ -11,7 +11,8 @@
     <a href="{{ url_for('main.view_comments',id = pitch.id) }}">View Comments</a>  
 </div>
 {% endfor %}
-{% end macro %}
+{% endmacro %}
+
 {% macro displayComments(list_of_comments) %}
 {% for  Comment in list_of_comments[::1] %}
 <div class="row">
