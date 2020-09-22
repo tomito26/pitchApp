@@ -1,14 +1,18 @@
 {% macro displayPitches(pitches_list) %}
 
 {% for pitch in pitches_list[::-1] %}
-<div class="panel">
-    <h3>{{pitch.pitch}}</h3>
-    <p>Posted on :{{pitch.date}}</p>
-    <br>
-    <a href="{{url_for('main.new_comment',id=pitch.id)}}">Add a Comment</a>
-    <a href="{{url_for('main.upvote',pitch_id = pitch.id)}}" class="btn btn primary btn-sm">Upvote <span>{{pitch.upvotes.count()}}</span></a>
-    <a href="{{url_for('main.downvote',pitch_id = pitch.id)}}" class="btn btn primary btn-sm">Downvote<span>{{pitch.downvotes.count()}}</span></a>
-    <a href="{{ url_for('main.view_comments',id = pitch.id) }}">View Comments</a>  
+<div class="col-md-10 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text" style="font-size: small;">{{pitch.pitch}}</h3>
+            <p class="card-text">Posted on :{{pitch.date}}</p>
+            <br>
+            <a href="{{url_for('main.new_comment',id=pitch.id)}}">Add a Comment</a>
+            <a href="{{url_for('main.upvote',pitch_id = pitch.id)}}" class="btn btn-info btn-sm">Upvote <span>{{pitch.upvotes.count()}}</span></a>
+            <a href="{{url_for('main.downvote',pitch_id = pitch.id)}}" class="btn btn-info btn-sm">Downvote<span>{{pitch.downvotes.count()}}</span></a>
+            <a href="{{ url_for('main.view_comments',id = pitch.id) }}">View Comments</a> 
+        </div>
+    </div> 
 </div>
 {% endfor %}
 {% endmacro %}
@@ -30,13 +34,16 @@
 {% macro displayPitchesInCategories(pitches,id) %}
     {% for pitch in pitches[::-1] %}
         {% if pitch.category_id==id %}
-           <div class="panel">
-               <p>{{pitch.pitch}}</p>
-               <p>Posted on:{{pitch.date}}</p>
-               <a href="{{ url_for('main.new_comment', id = pitch.id)}}">Add a comment</a>
-               <a href="{{ url_for('main.upvote', pitch_id = pitch_id) }}">Upvote <span>{{pitch.upvote.count()}}</span></a>
-               <a href="{{ url_for('main.downvote',pitch_id = pitch.d) }}" class="btn btn-info btn-sm">Downvote<span>{{pitch.downvote.count()}}</span></a>
-               <a href="{{ url_for('main.view_comments',id=pitch.id)}}">view comments</a>
+           <div class="col-md-10 mx-auto">
+                <div class="card p-3 pb-5">
+                    <div class="card-body">
+                        <b><p class="card-text" style="font-size: small;">{{pitch.pitch}}</p></b>
+                        <br>
+                        <p class="card-text">Posted on:{{pitch.date}}</p>
+                        <a href="{{ url_for('main.new_comment', id = pitch.id)}}" class="badge badge-info" style="font-size: small;">Add a comment</a>
+                        <a href="{{ url_for('main.view_comments',id=pitch.id)}}" class="badge badge-info" style="font-size: small;">view comments</a>
+                    </div>
+               </div>
            </div>
         {% endif %}
     {% endfor %}

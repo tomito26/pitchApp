@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active pr-5">
-                <a class="nav-link" href="/">Home
+                <a class="nav-link" href="/all">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -21,9 +21,9 @@
                 </a>
                 <div class="dropdown-menu dropdown-default bg-info" aria-labelledby="navbarDropdownMenuLink-333">
                     <a class="dropdown-item" href="{{url_for('main.interview')}}">Interview Pitches</a>
-                    <a class="dropdown-item" href="{{url_for('main.pick_up_lines')}}">Career Pitches</a>
-                    <a class="dropdown-item" href="{{ url_for('main.promotion') }}">Product PItches</a>
-                    <a class="dropdown-item" href="{{ url_for('main.product') }}">Product Pitches</a>
+                    <a class="dropdown-item" href="{{url_for('main.pick_up_lines')}}">Pick Up lines Pitches</a>
+                    <a class="dropdown-item" href="{{ url_for('main.promotion') }}">Promotion Pitches</a>
+                    <a class="dropdown-item" href="{{ url_for('main.product') }}">product Pitches</a>
                 </div>
             </li>
         </ul>
@@ -34,14 +34,13 @@
             <li class="dropdown"><a href="#" class="dropdown-toggle text-light" data-toggle="dropdown"><i
                         class="fa fa-user"></i><strong class="ml-2">Welcome, {{current_user.username}}</strong> <b
                         class="caret"></b></a>
-                <ul class="dropdown-menu bg-dark text-center">
+                <ul class="dropdown-menu bg-primary text-center">
         
-                    <li><a href="{{url_for('main.profile',uname=current_user.username)}} " class="text-light "><i
+                    <li><a href="{{url_for('main.profile',uname=current_user.username)}} " ><i
                                 class="icon-envelope"></i><strong>Your profile</strong></a></li>
                     <li class="divider"></li>
                     <div class="dropdown-divider"></div>
-                    <li><a href="{{url_for('auth.logout')}}" class="text-light "><i
-                                class="fa fa-sign-out mr-2"></i><strong>Logout</strong></a></li>
+                    <li><a href="{{url_for('auth.login')}}" ></a><i class="fa fa-sign-out mr-2"></i><strong>Login</strong></a></li>
                 </ul>
             </li>
             {% else %}

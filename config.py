@@ -2,10 +2,10 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:tom@localhost/pitchapp'
+    # SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:tom@localhost/pitchapp'
 
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
-    
+
     # email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -17,14 +17,15 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 
-class prodConfig(Config):
+class ProdConfig(Config):
     pass
 
 
 class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:tom@localhost/pitchapp'
     DEBUG = True
 
 config_options = {
     'development': DevConfig,
-    'production':prodConfig
+    'production':ProdConfig
 }

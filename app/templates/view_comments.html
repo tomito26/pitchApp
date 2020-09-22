@@ -1,4 +1,6 @@
 {%extends 'base.html' %}
+
+{% block content %}
     <div class="container">
         <a href="{{url_for('main.index')}}">
             <button type="button" class="btn btn-primary btn-sm">
@@ -20,5 +22,5 @@
     
     </div>
 
-{% block content %}
+{% endblock %}
 

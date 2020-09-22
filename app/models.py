@@ -56,7 +56,7 @@ class Pitch(db.Model):
         Function that saves the piches
         '''
         db.session.add(self)
-        db.sesion.commit()
+        db.session.commit()
     
     @classmethod
     def get_all_pitches(cls):
