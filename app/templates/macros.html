@@ -1,8 +1,8 @@
 {% macro displayPitches(pitches_list) %}
 
 {% for pitch in pitches_list[::-1] %}
-<div class="col-md-10 mx-auto">
-    <div class="card">
+<div class="col-md-4 mx-auto pt-5">
+    <div class="card p-3">
         <div class="card-body">
             <p class="card-text" style="font-size: small;">{{pitch.pitch}}</h3>
             <p class="card-text">Posted on :{{pitch.date}}</p>
@@ -34,8 +34,8 @@
 {% macro displayPitchesInCategories(pitches,id) %}
     {% for pitch in pitches[::-1] %}
         {% if pitch.category_id==id %}
-           <div class="col-md-10 mx-auto">
-                <div class="card p-3 pb-5">
+           <div class="col-md-4 mx-auto">
+                <div class="card p-3">
                     <div class="card-body">
                         <b><p class="card-text" style="font-size: small;">{{pitch.pitch}}</p></b>
                         <br>
