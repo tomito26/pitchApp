@@ -1,6 +1,6 @@
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top"  style="font-size: small;">
-    <a class="navbar-brand" href="#">pitchApp</a>
+    <a class="navbar-brand" href="{{url_for('main.all')}}">pitchApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active pr-5">
-                <a class="nav-link" href="/all">Home
+                <a class="nav-link" href="{{('/all')}}">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -40,11 +40,11 @@
                                 class="icon-envelope"></i><strong>Your profile</strong></a></li>
                     <li class="divider"></li>
                     <div class="dropdown-divider"></div>
-                    <li><a href="{{url_for('auth.login')}}" ></a><i class="fa fa-sign-out mr-2"></i><strong>Login</strong></a></li>
+                    <li><a href="{{url_for('auth.login')}}" ></a><i class="fa fa-sign-out mr-2 text-dark"></i><strong>Login</strong></a></li>
                 </ul>
             </li>
             {% else %}
-            <li><a href="{{url_for('auth.login')}}" class="text-light"><i class="fa fa-sign-in mr-2"></i><strong>Sign
+            <li><a href="{{url_for('auth.login')}}"><i class="fa fa-sign-in mr-2 text-dark"></i><strong>Sign
                         In</strong></a></li>
             {%endif%}
         </ul>
