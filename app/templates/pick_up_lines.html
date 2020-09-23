@@ -3,15 +3,15 @@
 
 {% block content %}
 <div class="container ">
-    <h3 class="text-center pt-5text-light"><strong>Pick Up Lines</strong></h3>
-    <a class="btn btn-primary" href="{{url_for('main.new_pitch')}}">
-        <br>
-        Add a new Pitch
+    <h3 class="text-center pt-5 text-light text-light"><strong>Pick Up Lines</strong></h3>
+    <a class="btn btn-primary" href="{{url_for('main.new_pitch')}}" style="font-size: small;">
+        Add a new pitch
     </a>
 
     <hr class="bg-light">
-
-    {{macro.displayPitchesInCategories(pitches,2)}}
+    <div class="row">
+        {{macro.displayPitchesInCategories(pitches,2)}}
+    </div>
     <hr>
 
 </div>

@@ -5,15 +5,14 @@
 {% block content %}
 <div class="container">
     <h3 class="text-center pt-5 text-light"><strong>Product Pitches</strong></h3>
-    <a class="btn btn-primary btn-md" href="{{url_for('main.new_pitch')}}">
-        <br>
-        Add a new Pitch
+    <a class="btn btn-primary" href="{{url_for('main.new_pitch')}}" style="font-size: small;">
+        Add a new pitch
     </a>
     
-    <hr>
-    <div class="row">
+    <br>
+    <div class="row mx-auto p-5">
         {{macro.displayPitchesInCategories(pitches,4)}}
     </div>
-    <hr>
+
 </div>
 {%endblock %}
